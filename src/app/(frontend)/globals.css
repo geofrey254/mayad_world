@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+body {
+  font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+
+h3 {
+  font-family: 'Roboto', Helvetica,
+    sans-serif;
+}
+
+h4 {
+  font-family: 'Roboto', Helvetica,
+    sans-serif;
+}
+
+ul {
+  font-family: 'Roboto', Helvetica,
+    sans-serif;
+}
+
+a {
+  font-family: 'Roboto', Helvetica,
+    sans-serif;
+}
+
+::placeholder {
+  font-family: 'Roboto', Helvetica,
+    sans-serif;
+}
+
+
+
+.logo-name {
+  font-family: 'Montserrat', sans-serif;
+}
