@@ -11,6 +11,7 @@ export async function GET() {
 
     return NextResponse.json(header || [])
   } catch (error) {
+    console.error('Failed to fetch data', error)
     return NextResponse.json({ error: 'Failed to fetch header' }, { status: 500 })
   }
 }

@@ -9,7 +9,8 @@ import EventsBlockPage from './components/homepage/EventsBlock'
 import config from '@/payload.config'
 import './globals.css'
 
-const renderBlock = (block: Page['layout'][0]) => {
+type Block = Page['layout'][0]
+const renderBlock = (block: Block) => {
   switch (block.blockType) {
     case 'hero':
       return <HeroBlock block={block} key={block.id} />

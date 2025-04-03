@@ -1,10 +1,9 @@
 'use client'
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Page } from '@/payload-types'
 import Image from 'next/image'
 
-export default function StoryBlock({ block }: { block: Page['layout'][0] }) {
+export default function StoryBlock({ block }: { block: { clause: string } }) {
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -19,7 +18,6 @@ export default function StoryBlock({ block }: { block: Page['layout'][0] }) {
       },
     },
   }
-
   return (
     <section className="relative min-h-screen overflow-hidden ">
       <motion.div

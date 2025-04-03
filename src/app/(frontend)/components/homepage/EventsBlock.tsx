@@ -3,7 +3,14 @@ import { Calendar, MapPin, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { fetchEvents } from '@/app/lib/fetchPosts'
 
-export default async function EventsBlockPage() {
+export interface EventProps {
+  block: {
+    title: string
+  }
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default async function EventsBlockPage({ block }: EventProps) {
   const event = await fetchEvents()
 
   if (!event) {

@@ -1,8 +1,8 @@
 'use client'
 import React from 'react'
-import { Page } from '@/payload-types'
 
-export default function MissionVision({ block }: { block: Page['layout'][0] }) {
+export default function MissionVision({ block }: { block: { mission: string; vision: string } }) {
+  console.log('BLOCKS MISSION', block)
   return (
     <section className="relative py-24 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
       <div className="absolute inset-0 bg-grid-blue-200/25 bg-grid bg-center mix-blend-soft-light"></div>

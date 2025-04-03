@@ -1,8 +1,28 @@
 'use client'
 import Link from 'next/link'
-import { Page } from '@/payload-types'
 
-export default function SocialBlock({ block }: { block: Page['layout'][0] }) {
+interface SocialProps {
+  block: {
+    twitter: {
+      label: string
+      url: string
+    }
+    facebook: {
+      label: string
+      url: string
+    }
+    linkedin: {
+      label: string
+      url: string
+    }
+    instagram: {
+      label: string
+      url: string
+    }
+  }
+}
+
+export default function SocialBlock({ block }: SocialProps) {
   const socialLinks = [
     {
       id: 'twitter',

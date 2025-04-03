@@ -1,12 +1,23 @@
 'use client'
 import React from 'react'
-import { Page } from '@/payload-types'
 import { ChevronRight, Globe } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import Link from 'next/link'
 
-export default function HeroBlock({ block }: { block: Page['layout'][0] }) {
+interface HeroBlockProps {
+  block: {
+    heading: string
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    subheading: any
+    cta_button: {
+      label: string
+      url: string
+    }
+  }
+}
+
+export default function HeroBlock({ block }: HeroBlockProps) {
   return (
     <section className="relative h-[79vh] md:h-screen overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
       {/* Decorative elements */}

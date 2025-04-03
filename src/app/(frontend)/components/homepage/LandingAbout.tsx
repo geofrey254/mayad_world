@@ -1,10 +1,20 @@
 'use client'
 import React from 'react'
-import { Page } from '@/payload-types'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function LandingAboutBlock({ block }: { block: Page['layout'][0] }) {
+interface LandingAboutProps {
+  block: {
+    heading: string
+    description: string
+    about_button: {
+      label: string
+      url: string
+    }
+  }
+}
+
+export default function LandingAboutBlock({ block }: LandingAboutProps) {
   return (
     <section className="py-20 bg-blue-50 border-t-2 border-yellow-500">
       <div className="xl:container mx-auto px-18 xl:px-0">
