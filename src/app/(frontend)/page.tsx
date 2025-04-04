@@ -1,6 +1,5 @@
 import { getPayload } from 'payload'
 import React from 'react'
-import { Page } from '@/payload-types'
 import HeroBlock from './components/homepage/HeroBlock'
 import LandingAboutBlock from './components/homepage/LandingAbout'
 import SocialBlock from './components/homepage/SocialBlock'
@@ -8,22 +7,6 @@ import EventsBlockPage from './components/homepage/EventsBlock'
 
 import config from '@/payload.config'
 import './globals.css'
-
-type Block = Page['layout'][0]
-const renderBlock = (block: Block) => {
-  switch (block.blockType) {
-    case 'hero':
-      return <HeroBlock block={block} key={block.id} />
-    case 'landing-about':
-      return <LandingAboutBlock block={block} key={block.id} />
-    case 'events_section':
-      return <EventsBlockPage block={block} key={block.id} />
-    case 'socials':
-      return <SocialBlock block={block} key={block.id} />
-    default:
-      return null
-  }
-}
 
 export default async function HomePage() {
   const payloadConfig = await config
@@ -43,7 +26,23 @@ export default async function HomePage() {
 
   return (
     <div>
-      <div className="page">{page.layout?.map((block) => renderBlock(block))}</div>
+      <div className="page">{page.layout?.map((block, index) => renderBlock(block, index))}</div>
     </div>
   )
+}
+
+function renderBlock(block: any, index: number) {
+  switch (block.blockType) {
+    case 'hero':
+      return <HeroBlock key={index} block={block} />
+    case 'landing-about':
+      return <LandingAboutBlock block={block} key={block.id} />
+    case 'events_section':
+      return <EventsBlockPage block={block} key={block.id} />
+    case 'socials':
+      return <SocialBlock block={block} key={block.id} />
+
+    default:
+      return null
+  }
 }
