@@ -1,20 +1,8 @@
 import { getPayload } from 'payload'
 import React from 'react'
-import { Page } from '@/payload-types'
 import StoryBlock from '../components/about-page/Story'
 import MissionVision from '../components/about-page/MissionVision'
 import config from '@/payload.config'
-
-const renderBlock = (block: Extract<Page['layout'], Array<unknown>>[number]) => {
-  switch (block.blockType) {
-    case 'about':
-      return <StoryBlock block={block} key={block.id} />
-    case 'goals':
-      return <MissionVision block={block} key={block.id} />
-    default:
-      return null
-  }
-}
 
 export default async function AboutPage() {
   const payloadConfig = await config
@@ -35,7 +23,19 @@ export default async function AboutPage() {
 
   return (
     <section className="w-full py-20">
-      <div className="page">{page.layout?.map((block) => renderBlock(block))}</div>
+      <div className="page">{page.layout?.map((block, index) => renderBlock(block, index))}</div>
     </section>
   )
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function renderBlock(block: any, index: number) {
+  switch (block.blockType) {
+    case 'about':
+      return <StoryBlock block={block} key={index} />
+    case 'goals':
+      return <MissionVision block={block} key={index} />
+    default:
+      return null
+  }
 }

@@ -31,16 +31,17 @@ export default async function HomePage() {
   )
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function renderBlock(block: any, index: number) {
   switch (block.blockType) {
     case 'hero':
       return <HeroBlock key={index} block={block} />
     case 'landing-about':
-      return <LandingAboutBlock block={block} key={block.id} />
+      return <LandingAboutBlock block={block} key={index} />
     case 'events_section':
-      return <EventsBlockPage block={block} key={block.id} />
+      return <EventsBlockPage block={block} key={index} />
     case 'socials':
-      return <SocialBlock block={block} key={block.id} />
+      return <SocialBlock block={block} key={index} />
 
     default:
       return null
